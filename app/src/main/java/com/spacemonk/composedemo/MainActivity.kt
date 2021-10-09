@@ -15,8 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.spacemonk.composedemo.model.Category
@@ -87,11 +87,6 @@ fun MainScreen(categories: List<Category>) {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Composable
 fun SearchBarCard() {
     Card(
         modifier = Modifier
@@ -99,7 +94,7 @@ fun SearchBarCard() {
             .padding(vertical = 8.dp, horizontal = 16.dp),
         backgroundColor = Color.parse("#f9f9f9"),
         shape = RoundedCornerShape(16.dp),
-        elevation = 12.dp
+        elevation = 0.dp
     ) {
         Row {
             Icon(
@@ -118,7 +113,7 @@ fun SearchBarCard() {
 
 @Composable
 fun CategoriesCarousel(categories: List<Category>) {
-    LazyRow {
+    LazyRow(modifier = Modifier.padding(8.dp, 0.dp)) {
         itemsIndexed(
             items = categories,
             itemContent = { _, item ->
@@ -142,17 +137,18 @@ fun CategoryCard(categoryData: Category) {
         ) {
             Image(
                 painter = rememberImagePainter(
-                    data = categoryData.imageUrl,
-                    builder = {
-
-                    }
+                    data = categoryData.imageUrl
                 ),
                 contentDescription = categoryData.title,
                 modifier = Modifier
-                    .size(60.dp),
-                contentScale = ContentScale.Crop
+                    .size(60.dp)
+                    .padding(12.dp)
             )
         }
-        Text(text = categoryData.title)
+        Text(
+            text = categoryData.title,
+            fontSize = 12.sp,
+            color = Color.parse("#666666")
+        )
     }
 }
