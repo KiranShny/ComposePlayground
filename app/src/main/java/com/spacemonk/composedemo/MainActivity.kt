@@ -216,43 +216,15 @@ fun RecentItemCard(
                 modifier = Modifier.padding(16.dp, 0.dp, 16.dp, 8.dp)
             )
         }
-        /*Column(
-            modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.End
-        ) {
-
-        }*/
         Spacer(modifier = Modifier.weight(1f))
         OutlinedButton(
-            onClick = { /*TODO*/ },
+            onClick = { /*TODO: Handle click*/ },
             modifier = Modifier
                 .padding(16.dp)
                 .align(Alignment.Bottom)
         ) {
             Text(text = "Add")
         }
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun RecentItemCardPreview() {
-    ComposeDemoTheme {
-        RecentItemCard(
-            orderItem = RecentOrder(
-                title = "Crocin 650",
-                distributor = "Mercury Agencies",
-                amountAfter = "$30",
-                amountBefore = "$70",
-                availability = "130 Available",
-                imageUrl = "https://static2.medplusmart.com/products/_a17f3e_/DOLO0011_L.jpg"
-            ),
-            modifier = Modifier
-                .wrapContentHeight()
-                .fillMaxWidth()
-        )
     }
 }
 
