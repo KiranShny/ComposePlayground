@@ -3,7 +3,18 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+        maven {
+            url "${artifactory_url}"
+            credentials {
+                username = "${artifactory_username}"
+                password = "${artifactory_password}"
+            }
+            allowInsecureProtocol = true
+        }
+        maven { url "https://jitpack.io" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 }
 rootProject.name = "ComposeDemo"
